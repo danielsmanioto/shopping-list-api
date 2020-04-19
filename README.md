@@ -1,24 +1,28 @@
 # shopping-list-api
 API
 
-# Tecnologies
+### Tecnologies
 Jdk11
 Maven
 Caching
 Lombok -> https://projectlombok.org/features/GetterSetter
 
-# Local
+### Local
 
-mvn clean-install spring-boot:run
+`mvn clean-install spring-boot:run`
 
-# Deploy
+### Deploy
 
-sh build.sh
-sh run.sh
+`sh build.sh`
+`sh run.sh`
 
-docker exec -ti shopping-list /bin/sh
+### See connectair logs
+`docker ps --all `
+`docker logs shopping-list`
 
-# Software working and manual test
+`docker exec -ti shopping-list /bin/sh`
+
+### Software working and manual test
 
 curl http://localhost:8080/shopping-list
 
