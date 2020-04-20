@@ -7,7 +7,8 @@ API
   <li>Spring-boot</li>
   <li>Maven</li>
   <li>Lombok</li>
-<ul>
+</ul>
+
 ### Deploy Local  
 
 `mvn clean-install spring-boot:run`
