@@ -29,7 +29,6 @@ curl http://localhost:8080/shopping-list
 and FOR HAVE MORE, you can use import postman project in this repository /postman-collections .
 
 # Heroku
-heroku login
-git push heroku master
-
+`heroku login`
+`git push heroku master`
 http://dsmanioto-shopping-list.herokuapp.com/
