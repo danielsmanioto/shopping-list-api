@@ -6,17 +6,30 @@
 	},
 	"item": [
 		{
-			"name": "http://localhost:8080/shopping-list",
+			"name": "/shopping-list",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "adminasdasd",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "345345345345",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/shopping-list",
-					"protocol": "http",
+					"raw": "{{url}}/shopping-list",
 					"host": [
-						"localhost"
+						"{{url}}"
 					],
-					"port": "8080",
 					"path": [
 						"shopping-list"
 					]
@@ -25,7 +38,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/shopping-list",
+			"name": "/shopping-list",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -39,13 +52,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/shopping-list",
-					"protocol": "http",
+					"raw": "{{url}}//shopping-list",
 					"host": [
-						"localhost"
+						"{{url}}"
 					],
-					"port": "8080",
 					"path": [
+						"",
 						"shopping-list"
 					]
 				}
@@ -53,27 +65,26 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/shopping-list/coca",
+			"name": "/shopping-list/coca",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/shopping-list/coca",
-					"protocol": "http",
+					"raw": "{{url}}//shopping-list/Coca cola lata",
 					"host": [
-						"localhost"
+						"{{url}}"
 					],
-					"port": "8080",
 					"path": [
+						"",
 						"shopping-list",
-						"coca"
+						"Coca cola lata"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/shopping-list",
+			"name": "/shopping-list",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -87,13 +98,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/shopping-list",
-					"protocol": "http",
+					"raw": "{{url}}//shopping-list",
 					"host": [
-						"localhost"
+						"{{url}}"
 					],
-					"port": "8080",
 					"path": [
+						"",
 						"shopping-list"
 					]
 				}

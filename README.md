@@ -5,6 +5,8 @@ API
 <ul>
   <li>JDK_11</li>
   <li>Spring-boot</li>
+  <li>Spring Secutiry</li>
+  <li>Spring Cloud / Eureka</li>
   <li>Maven</li>
   <li>Lombok</li>
 </ul>
@@ -34,6 +36,6 @@ and FOR HAVE MORE, you can use import postman project in this repository /postma
 # Heroku
 `heroku login`
 `git push heroku master`
-`curl http://dsmanioto-shopping-list.herokuapp.com/shopping-list`
+`curl http://dsmanioto-shopping-list.herokuapp.com/shopping-list` 
 <br>
 http://dsmanioto-shopping-list.herokuapp.com/
