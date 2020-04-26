@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Objects;
 
@@ -40,12 +41,7 @@ public class ShoppingListController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<?> insert(@RequestBody ShoppingList item) {
-		
-		if(Objects.isNull(item) || StringUtils.isEmpty(item.getItem()) ) {
-			return ResponseEntity.noContent().build();
-		}
-		
+	public ResponseEntity<?> insert(@RequestBody @Valid ShoppingList item) {
 		repository.insert(item);
 		return ResponseEntity.ok().build();
 	}
