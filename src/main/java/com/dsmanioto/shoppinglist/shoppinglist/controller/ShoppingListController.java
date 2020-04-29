@@ -1,8 +1,10 @@
 package com.dsmanioto.shoppinglist.shoppinglist.controller;
 
+import com.dsmanioto.shoppinglist.shoppinglist.exception.ShoppingListNotFoundException;
 import com.dsmanioto.shoppinglist.shoppinglist.model.ShoppingList;
 import com.dsmanioto.shoppinglist.shoppinglist.repository.ShoppingListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
@@ -30,14 +33,11 @@ public class ShoppingListController {
 	}
 	
 	@GetMapping("/{name}")
-	public ResponseEntity<?> findById(@PathVariable	String name) {
-		var  item = repository.findByName(name);
-		
-		if(!item.isPresent()) {
-			return ResponseEntity.notFound().build();
-		}
-			
-		return ResponseEntity.ok(item.get());
+	@ResponseStatus(HttpStatus.OK)
+	public ShoppingList findById(@PathVariable	String name) {
+		return repository
+				.findByName(name)
+				.orElseThrow(ShoppingListNotFoundException::new);
 	}
 	
 	@PostMapping
