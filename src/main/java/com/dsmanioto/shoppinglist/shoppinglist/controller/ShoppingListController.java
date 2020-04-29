@@ -28,6 +28,7 @@ public class ShoppingListController {
 	private ShoppingListRepository repository;
 	
 	@GetMapping
+	@ResponseStatus(HttpStatus.OK)
 	public List<ShoppingList> findAll() {
 		return repository.findAll();
 	}
@@ -41,24 +42,21 @@ public class ShoppingListController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<?> insert(@RequestBody @Valid ShoppingList item) {
+	@ResponseStatus(HttpStatus.CREATED)
+	public void insert(@RequestBody @Valid ShoppingList item) {
 		repository.insert(item);
-		return ResponseEntity.ok().build();
 	}
 	
 	@DeleteMapping
-	public ResponseEntity remove(@RequestBody ShoppingList item) {
-		if(Objects.isNull(item) || StringUtils.isEmpty(item.getItem()) ) {
-			return ResponseEntity.noContent().build();
-		}
+	@ResponseStatus(HttpStatus.OK)
+	public void remove(@RequestBody ShoppingList item) {
 		var itemShoppingList = repository.findByName(item.getItem());
 		
 		if(!itemShoppingList.isPresent()) {
-			return ResponseEntity.notFound().build();
+			throw new ShoppingListNotFoundException();
 		}
 		
 		repository.remove(itemShoppingList.get());
-		 return ResponseEntity.ok().build();
 	}
 	
 }
